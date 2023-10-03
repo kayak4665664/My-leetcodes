@@ -1,11 +1,9 @@
-function maximumWealth ( accounts: number[][] ): number {
-  function sum ( account: number[] ): number {
-    let res: number = 0;
-    for ( let amount of account ) res += amount;
-    return res;
+function runningSum ( nums: number[] ): number[] {
+  let sum: number = nums[ 0 ];
+  let end: number = nums.length;
+  for ( let i: number = 1; i < end; ++i ) {
+    nums[ i ] += sum;
+    sum = nums[ i ];
   }
-  let max: number = -1;
-  for ( let account of accounts )
-    max = Math.max( max, sum( account ) )
-  return max;
+  return nums;
 };
